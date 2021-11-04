@@ -1,3 +1,7 @@
+#block_title{
+	padding: 10px 0 10px 0;
+	border-bottom: 1px solid rgb(173, 173, 173);
+}
 .mainContainer{
 	display: flex;
 	flex-direction: column;
@@ -10,6 +14,7 @@
 	margin: 0;
 }
 
+/* Main Info*/
 .income_expense{
 	display: flex;
 	flex-direction: row;
@@ -17,32 +22,50 @@
 	padding: 30px;
 	background-color: #fff;
 	box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2), 0 6px 8px 0 rgba(0, 0, 0, 0.19);
-	
 }
 .col{
 	display: flex;
 	flex-direction: column;
-	
 }
 .income{
-	color: red;
+	color: rgb(101, 211, 101);
+	font-size: 22px;
 }	
+.expense{
+	color: red;
+	font-size: 22px;
+}
 .income_cont{
 	margin: 0 auto 0 30px;
 }
 .expense_cont{
 	margin: 0 30px 0 auto;
 }
-.expense{
-	color: lightgreen;
-}
 .trans_title{
 	font-weight: 600;
 	padding: 10px 0;
+	text-align: center;
 }
 .vl{
-	border-left: 3px solid rgb(204, 204, 204);
+	border-left: 2px solid rgb(204, 204, 204);
 	height: auto;
   	left: 50%;
   	margin-left: -3px;
+}
+
+/*History*/
+.trans_list_item{
+	background-color: #fff;
+	padding: 10px;
+	margin: 10px 0;
+	box-shadow: 0 2px 3px 0 rgba(95, 95, 95, 0.2), 0 3px 2px 0 rgba(99, 99, 99, 0.19);
+}
+.trans_price{
+	float: right;
+}
+.trans_expense{
+	border-right: 5px solid red;
+}
+.trans_income{
+	border-right: 5px solid rgb(101, 211, 101);
 }
