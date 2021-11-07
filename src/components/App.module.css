@@ -61,19 +61,19 @@
 	padding: 10px;
 	margin: 10px 0;
 	box-shadow: 0 2px 3px 0 rgba(95, 95, 95, 0.2), 0 3px 2px 0 rgba(99, 99, 99, 0.19);
-	animation: button 1s;
-	animation-play-state: paused;  
 }
-.trans_list_item:hover{
-	animation-play-state: running; 
+.trans_list_item:hover>#btn{
+	left: -21px;
+	opacity: 1;
 }
-.trans_list_item button{
+#btn{
 	border: none;
 	background-color: rgba(255, 0, 0, 0.493);
 	color: #fff;
 	position: absolute;
 	left: 0;
 	opacity: 0;
+	transition: left 1s, opacity 1s;
 }
 .trans_list_item button:hover{
 	cursor: pointer;
@@ -81,17 +81,14 @@
 .trans_list_item span{
 	cursor: default;
 }
-.trans_price{
-	float: right;
+.trans_name{
+	margin-right: auto;
 }
 .trans_expense{
 	border-right: 5px solid red;
 }
 .trans_income{
 	border-right: 5px solid rgb(101, 211, 101); 
-}
-@keyframes button {
-	to {left: -21px; opacity: 1;}	
 }
 
 /* Add transaction */
@@ -122,4 +119,9 @@
 	color: #fff;
 	border: none;
 	font-size: 16px;
+	box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2), 0 0px 10px 0 rgba(0, 0, 0, 0.19);
+}
+.btn_cont button:hover{
+	cursor: pointer;
+	
 }

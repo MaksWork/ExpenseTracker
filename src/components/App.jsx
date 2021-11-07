@@ -27,18 +27,20 @@ const App = () => {
             <div className={styles.history}>
                 <div className={styles.trans_list}>
                     <div className={`${styles.trans_list_item} ${styles.trans_expense}`}>
-                        <button>X</button>
-                        <span>Book</span>
-                        <span className={styles.trans_price}>-$ 120.00</span>
+                        <button id={styles.btn}>X</button>
+                        <span className={styles.trans_name}>Book</span>
+                        <span>-$ 120.00</span>
                     </div>
                     <div></div>
                     <div className={`${styles.trans_list_item} ${styles.trans_income}`}>
-                        <span>Cash</span>
-                        <span className={styles.trans_price}>+$ 300.00</span>
+                        <button id={styles.btn}>X</button>
+                        <span className={styles.trans_name}>Cash</span>
+                        <span>+$ 300.00</span>
                     </div>
                     <div className={`${styles.trans_list_item} ${styles.trans_expense}`}>
-                        <span>Book</span>
-                        <span className={styles.trans_price}>-$ 120.00</span>
+                        <button id={styles.btn}>X</button>
+                        <span className={styles.trans_name}>Book</span>
+                        <span>-$ 120.00</span>
                     </div>
 
                 </div>
