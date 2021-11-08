@@ -1,0 +1,33 @@
+.text_cont, .amount_cont{
+	display: flex;
+	flex-direction: column;
+}
+.text_cont span, .amount_cont span{
+	margin: 10px 0;
+}
+.amount_cont h4{
+	font-weight: normal;
+}
+.text_cont input, .amount_cont input{
+	border: none;
+	outline: none;
+	padding: 7px;
+	font-size: 15px;
+	border: 1px solid rgb(194, 194, 194)
+}
+.btn_cont{
+	margin: 10px 0;
+}
+.btn_cont button{
+	width: 100%;
+	padding: 10px 0;
+	background-color: #9C89FF;
+	color: #fff;
+	border: none;
+	font-size: 16px;
+	box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2), 0 0px 10px 0 rgba(0, 0, 0, 0.19);
+}
+.btn_cont button:hover{
+	cursor: pointer;
+	
+}

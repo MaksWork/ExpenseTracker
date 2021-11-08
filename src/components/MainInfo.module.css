@@ -1,0 +1,37 @@
+.income_expense{
+	display: flex;
+	flex-direction: row;
+	margin: 20px 0;
+	padding: 30px;
+	background-color: #fff;
+	box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2), 0 6px 8px 0 rgba(0, 0, 0, 0.19);
+}
+.col{
+	display: flex;
+	flex-direction: column;
+}
+.income{
+	color: rgb(101, 211, 101);
+	font-size: 22px;
+}	
+.expense{
+	color: red;
+	font-size: 22px;
+}
+.income_cont{
+	margin: 0 auto 0 30px;
+}
+.expense_cont{
+	margin: 0 30px 0 auto;
+}
+.trans_title{
+	font-weight: 600;
+	padding: 10px 0;
+	text-align: center;
+}
+.vl{
+	border-left: 2px solid rgb(204, 204, 204);
+	height: auto;
+  	left: 50%;
+  	margin-left: -3px;
+}

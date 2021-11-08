@@ -1,65 +1,48 @@
 import React from "react";
+import { useState } from "react";
 
 import styles from "./App.module.css";
 
+import MainInfo from "./MainInfo";
+import History from "./History";
+import AddTrans from "./AddTrans";
+
 const App = () => {
+    let [money, setMoney] = useState(160);
+    let [income, setIncome] = useState(200);
+    let [expense, setExpense] = useState(40);
+
+    let [history, setHistory] = useState([
+        { text: "Book", amount: -20 },
+        { text: "Lunch", amount: -20 },
+        { text: "Work", amount: 200 },
+    ]);
+
+    const addTransaction = (text, amount) => {
+        setMoney((m) => {
+            return m + parseInt(amount);
+        });
+        if(amount.charAt(0) === "-"){
+            setExpense((e) => e - parseInt(amount));
+        }
+        else{
+            setIncome((i) => i + parseInt(amount));
+        }
+        let intAmount = parseInt(amount);
+        setHistory((h) => {
+            h.push({text, intAmount})
+        })
+        console.log(history);
+    };
+
     return (
         <div className={styles.mainContainer}>
             <h2>Expense tracker</h2>
-            <div className={styles.mainInfo}>
-                <div className={styles.balance}>
-                    <h3>Your balance</h3>
-                    <h1>$ 180.00</h1>
-                </div>
-                <div className={styles.income_expense}>
-                    <div className={`${styles.income_cont} ${styles.col}`}>
-                        <span className={styles.trans_title}>INCOME</span>
-                        <span className={styles.income}>$ 300.00</span>
-                    </div>
-                    <div className={styles.vl}></div>
-                    <div className={`${styles.expense_cont} ${styles.col}`}>
-                        <span className={styles.trans_title}>EXPENSE</span>
-                        <span className={styles.expense}>$ 200.00</span>
-                    </div>
-                </div>
-            </div>
+            <MainInfo money={money} income={income} expense={expense}/>
             <h3 id={styles.block_title}>History</h3>
-            <div className={styles.history}>
-                <div className={styles.trans_list}>
-                    <div className={`${styles.trans_list_item} ${styles.trans_expense}`}>
-                        <button id={styles.btn}>X</button>
-                        <span className={styles.trans_name}>Book</span>
-                        <span>-$ 120.00</span>
-                    </div>
-                    <div></div>
-                    <div className={`${styles.trans_list_item} ${styles.trans_income}`}>
-                        <button id={styles.btn}>X</button>
-                        <span className={styles.trans_name}>Cash</span>
-                        <span>+$ 300.00</span>
-                    </div>
-                    <div className={`${styles.trans_list_item} ${styles.trans_expense}`}>
-                        <button id={styles.btn}>X</button>
-                        <span className={styles.trans_name}>Book</span>
-                        <span>-$ 120.00</span>
-                    </div>
-
-                </div>
-            </div>
+            <History historyList={history}/>
             <h3 id={styles.block_title}>Add new transaction</h3>
-            <div className={styles.addTransaction}>
-                <div className={styles.text_cont}>
-                    <span>Text</span>
-                    <input placeholder="Enter text..."></input>
-                </div>
-                <div className={styles.amount_cont}>
-                    <span>Amount
-                    <h4>(negative - expense;positive - income)</h4></span>
-                    <input placeholder="Enter amount..."></input>
-                </div>
-                <div className={styles.btn_cont}>
-                    <button>Add transaction</button>
-                </div>
-            </div>
+            <AddTrans addTransaction={addTransaction} />
         </div>
     );
 };
