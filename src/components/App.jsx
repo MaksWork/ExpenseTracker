@@ -18,21 +18,35 @@ const App = () => {
         { text: "Work", amount: 200 },
     ]);
 
-    const addTransaction = (text, amount) => {
-        setMoney((m) => {
-            return m + parseInt(amount);
-        });
-        if(amount.charAt(0) === "-"){
-            setExpense((e) => e - parseInt(amount));
+    const deleteTransaction = (id) => {
+        const list = Object.assign([], history);
+        
+        if(list[id].amount > 0){
+            setMoney(money - Math.abs(list[id].amount))
+            setIncome(income - list[id].amount)
         }
         else{
-            setIncome((i) => i + parseInt(amount));
+            setMoney(money + Math.abs(list[id].amount))
+            setExpense(expense + list[id].amount)
         }
-        let intAmount = parseInt(amount);
-        setHistory((h) => {
-            h.push({text, intAmount})
-        })
-        console.log(history);
+
+        list.splice(id, 1);
+        setHistory(list);
+    }
+    
+    const addTransaction = (text, amountStr) => {
+        setMoney((m) => {
+            return m + parseInt(amountStr);
+        });
+        if(amountStr.charAt(0) === "-"){
+            setExpense((e) => e - parseInt(amountStr));
+        }
+        else{
+            setIncome((i) => i + parseInt(amountStr));
+        }
+        let amount = parseInt(amountStr);
+        let object = {text: text, amount: amount};
+        setHistory(h => [...h, object])
     };
 
     return (
@@ -40,7 +54,7 @@ const App = () => {
             <h2>Expense tracker</h2>
             <MainInfo money={money} income={income} expense={expense}/>
             <h3 id={styles.block_title}>History</h3>
-            <History historyList={history}/>
+            <History historyList={history} deleteMethod={deleteTransaction}/>
             <h3 id={styles.block_title}>Add new transaction</h3>
             <AddTrans addTransaction={addTransaction} />
         </div>
